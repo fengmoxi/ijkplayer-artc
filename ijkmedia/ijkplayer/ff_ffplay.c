@@ -3161,8 +3161,26 @@ static int read_thread(void *arg)
         av_dict_set_int(&ffp->format_opts, "skip-calc-frame-rate", ffp->skip_calc_frame_rate, 0);
     }
 
-    if (ffp->iformat_name)
-        is->iformat = av_find_input_format(ffp->iformat_name);
+    if (strncmp(is->filename, "artc://", 7) == 0)
+    {
+        extern AVInputFormat ff_rtc_demuxer;
+        extern int artc_reload(AVFormatContext * ctx);
+        extern void av_set_rts_demuxer_funcs(const struct rts_glue_funcs *funcs);
+        extern void artc_set_rts_param(char *key, char *value);
+        extern long long artc_get_state(AVFormatContext * ctx, int key);
+
+        int version = 2;
+        const struct rts_glue_funcs *rts_funcs = get_rts_funcs(version);
+        // set to ffmpeg plugin
+        av_set_rts_demuxer_funcs(rts_funcs);
+        artc_set_rts_param((char *)"AutoReconnect", (char *)"false");
+        is->iformat = &ff_rtc_demuxer;
+    }
+    else
+    {
+        if (ffp->iformat_name)
+            is->iformat = av_find_input_format(ffp->iformat_name);
+    }
     err = avformat_open_input(&ic, is->filename, is->iformat, &ffp->format_opts);
     if (err < 0) {
         print_error(is->filename, err);

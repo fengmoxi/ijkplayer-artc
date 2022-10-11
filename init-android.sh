@@ -52,3 +52,17 @@ pull_fork "x86_64"
 
 cp extra/CMakeLists.txt.yuv ijkmedia/ijkyuv/CMakeLists.txt
 cp extra/CMakeLists.txt.soundtouch ijkmedia/ijksoundtouch/CMakeLists.txt
+
+# ARTC
+cp artc/android/lib/arm64-v8a/libRtsSDK.so android/contrib/build/ffmpeg-arm64/output/libRtsSDK.so
+cp artc/android/lib/armeabi-v7a/libRtsSDK.so android/contrib/build/ffmpeg-armv7a/output/libRtsSDK.so
+cp artc/android/lib/x86_64/libRtsSDK.so android/contrib/build/ffmpeg-x86/output/libRtsSDK.so
+cp artc/android/lib/x86_64/libRtsSDK.so android/contrib/build/ffmpeg-x86_64/output/libRtsSDK.so
+cp artc/android/include/rts_api.h android/contrib/build/ffmpeg-arm64/output/include/rts_api.h
+cp artc/android/include/rts_messages.h android/contrib/build/ffmpeg-arm64/output/include/rts_messages.h
+cp artc/android/include/rts_api.h android/contrib/build/ffmpeg-armv7a/output/include/rts_api.h
+cp artc/android/include/rts_messages.h android/contrib/build/ffmpeg-armv7a/output/include/rts_messages.h
+cp artc/android/include/rts_api.h android/contrib/build/ffmpeg-x86/output/include/rts_api.h
+cp artc/android/include/rts_messages.h android/contrib/build/ffmpeg-x86/output/include/rts_messages.h
+cp artc/android/include/rts_api.h android/contrib/build/ffmpeg-x86_64/output/include/rts_api.h
+cp artc/android/include/rts_messages.h android/contrib/build/ffmpeg-x86_64/output/include/rts_messages.h
