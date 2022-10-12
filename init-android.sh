@@ -55,10 +55,10 @@ cp extra/CMakeLists.txt.soundtouch ijkmedia/ijksoundtouch/CMakeLists.txt
 
 # ARTC
 pwd
-mkdir -p android/contrib/build/ffmpeg-armv7a/output
-mkdir -p android/contrib/build/ffmpeg-arm64/output
-mkdir -p android/contrib/build/ffmpeg-x86/output
-mkdir -p android/contrib/build/ffmpeg-x86_64/output
+mkdir -p android/contrib/build/ffmpeg-armv7a/output/include
+mkdir -p android/contrib/build/ffmpeg-arm64/output/include
+mkdir -p android/contrib/build/ffmpeg-x86/output/include
+mkdir -p android/contrib/build/ffmpeg-x86_64/output/include
 cp artc/android/lib/arm64-v8a/libRtsSDK.so android/contrib/build/ffmpeg-arm64/output/libRtsSDK.so
 cp artc/android/lib/armeabi-v7a/libRtsSDK.so android/contrib/build/ffmpeg-armv7a/output/libRtsSDK.so
 cp artc/android/lib/x86_64/libRtsSDK.so android/contrib/build/ffmpeg-x86/output/libRtsSDK.so
